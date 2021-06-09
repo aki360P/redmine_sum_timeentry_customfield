@@ -16,6 +16,7 @@ Redmine::Plugin.register :redmine_sum_timeentry_customfield do
   # setting
   settings  partial: 'rstc_global_settings/show',
             default: {
-              'rstc_tracker' => '1'
+              'rstc_tracker' => '',
+              'rstc_cf' => ''
                }
 end

@@ -4,9 +4,12 @@
     <% tracker_ids = Tracker.all %>
     <p>
       <%= label_tag('settings[rstc_tracker]', l(:label_rstc_setting_tracker_id)) %>
-      <%= select_tag('settings[rstc_tracker]', options_for_select(tracker_ids.collect{|c| [c.name, c.id]}, @settings['rstc_tracker'])) %>
+      <%= select_tag('settings[rstc_tracker]', options_for_select(tracker_ids.collect{|c| [c.name, c.id]}.insert(0, ""), @settings['rstc_tracker'])) %>
     </p>
-      
-  <%= submit_tag l(:button_save) %>
+    <% cf_ids = CustomField.where(type: 'TimeEntryCustomField') %>
+    <p>
+      <%= label_tag('settings[rstc_cf]', l(:label_rstc_setting_cf_id)) %>
+      <%= select_tag('settings[rstc_cf]', options_for_select(cf_ids.collect{|c| [c.name, c.id]}.insert(0, ""), @settings['rstc_cf'])) %>
+    </p>
 
 </div>
