@@ -1,5 +1,4 @@
-module Rstc
-  class Hooks < Redmine::Hook::ViewListener
+class RstcHooks < Redmine::Hook::ViewListener
     def view_issues_show_details_bottom(context={ })
       project = context[:project]
       issue = context[:issue]
@@ -34,5 +33,5 @@ module Rstc
 
       project.module_enabled? :redmine_sum_timeentry_customfield
     end
-  end
+
 end
